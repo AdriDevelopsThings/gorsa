@@ -9,18 +9,6 @@ const (
 	CHUNK_SIZE = 64 / 8
 )
 
-func splitBytesInChunks(bytes []byte, chunk_size int) [][]byte {
-	chunked := make([][]byte, 0)
-	for index := 0; index < len(bytes); index += chunk_size {
-		end := index + chunk_size
-		if end > len(bytes) {
-			end = len(bytes)
-		}
-		chunked = append(chunked, bytes[index:end])
-	}
-	return chunked
-}
-
 func CalculatePrivateKeyFromPhi(e, phi_N *big.Int) *big.Int {
 	gcds := make([]GCDData, 0)
 	_, gcds = GCD(e, phi_N, gcds)
