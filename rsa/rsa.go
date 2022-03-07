@@ -5,10 +5,6 @@ import (
 	"math/big"
 )
 
-const (
-	CHUNK_SIZE = 64 / 8
-)
-
 func CalculatePrivateKeyFromPhi(e, phi_N *big.Int) *big.Int {
 	gcds := make([]GCDData, 0)
 	_, gcds = GCD(e, phi_N, gcds)
